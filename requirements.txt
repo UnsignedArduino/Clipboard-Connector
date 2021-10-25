@@ -1,1 +1,2 @@
-coloredlogs
+coloredlogs~=15.0.1
+networkzero~=1.0b1

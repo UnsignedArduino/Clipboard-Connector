@@ -1,6 +1,7 @@
 import logging
 
 from create_logger import create_logger
+import networkzero as nw0
 
 
 class ClipboardHost:
@@ -13,7 +14,12 @@ class ClipboardHost:
         """
         self.logger = create_logger(name=__name__, level=log_level)
         self.name = name
-        self.logger.debug(f"Advertising name: {self.name}")
+
+    def run(self):
+        """
+        Kick everything into action!
+        """
+        self.logger.info(f"Starting host under name \"{self.name}\"")
 
 
 class ClipboardClient:
@@ -27,3 +33,9 @@ class ClipboardClient:
         self.logger = create_logger(name=__name__, level=log_level)
         self.name = name
         self.logger.debug(f"Target: {self.name}")
+
+    def run(self):
+        """
+        Kick everything into action!
+        """
+        self.logger.info("Starting client")

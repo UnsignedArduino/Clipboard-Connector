@@ -21,3 +21,5 @@ if args.host:
     conn = ClipboardHost(name=args.name, log_level=level)
 else:
     conn = ClipboardClient(name=args.name, log_level=level)
+
+conn.run()
