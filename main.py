@@ -2,6 +2,7 @@ import logging
 from argparse import ArgumentParser
 
 from pyperclip import PyperclipException
+
 from connector import ClipboardHost, ClipboardClient
 from create_logger import create_logger
 
