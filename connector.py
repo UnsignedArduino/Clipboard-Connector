@@ -1,7 +1,6 @@
 import logging
+import pyperclip
 from time import sleep
-
-import networkzero as nw0
 
 from create_logger import create_logger
 
@@ -27,12 +26,17 @@ class ClipboardHost:
         self.logger.debug("Starting event loop")
         while True:
             self.service()
-            sleep(1)
 
     def service(self):
         """
         Service everything.
         """
+        try:
+            text = pyperclip.waitForNewPaste(1)
+        except pyperclip.PyperclipTimeoutException:
+            pass
+        else:
+            pass
 
 
 class ClipboardClient:
@@ -54,9 +58,14 @@ class ClipboardClient:
         self.logger.debug("Starting event loop")
         while True:
             self.service()
-            sleep(1)
 
     def service(self):
         """
         Service everything.
         """
+        try:
+            text = pyperclip.waitForNewPaste(1)
+        except pyperclip.PyperclipTimeoutException:
+            pass
+        else:
+            pass

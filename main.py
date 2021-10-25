@@ -22,4 +22,7 @@ if args.host:
 else:
     conn = ClipboardClient(name=args.name, log_level=level)
 
-conn.run()
+try:
+    conn.run()
+except KeyboardInterrupt:
+    logger.warning("Exiting")
