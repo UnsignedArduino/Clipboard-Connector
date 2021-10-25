@@ -1,6 +1,7 @@
 import logging
 from argparse import ArgumentParser
 
+from pyperclip import PyperclipException
 from connector import ClipboardHost, ClipboardClient
 from create_logger import create_logger
 
@@ -24,5 +25,12 @@ else:
 
 try:
     conn.run()
+except PyperclipException:
+    logger.error("Clipboard Connector was unable to find a copy/paste "
+                 "mechanism for your system.")
+    logger.error("Try installing xsel or xclip via apt, "
+                 "or gtk or PyQt4 via pip")
 except KeyboardInterrupt:
+    pass
+finally:
     logger.warning("Exiting")
