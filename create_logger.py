@@ -1,4 +1,5 @@
 import logging
+from coloredlogs import ColoredFormatter
 
 
 def create_logger(name: str, level: int = logging.DEBUG) -> logging.Logger:
@@ -17,8 +18,8 @@ def create_logger(name: str, level: int = logging.DEBUG) -> logging.Logger:
     logger = logging.getLogger(name=name)
     console_handler = logging.StreamHandler()
     console_handler.setLevel(level=level)
-    console_formatter = logging.Formatter("%(asctime)s - %(name)s - "
-                                          "%(levelname)s - %(message)s")
+    console_formatter = ColoredFormatter("%(asctime)s - %(name)s - "
+                                         "%(levelname)s - %(message)s")
     console_handler.setFormatter(fmt=console_formatter)
     console_handler.setLevel(level=level)
     logger.propagate = False
